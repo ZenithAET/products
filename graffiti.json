@@ -1,0 +1,36 @@
+{
+  "name": "epsilon_graffiti",
+  "version": "0.2.0",
+  "versions": [
+    {
+      "version": "0.2.0",
+      "added": [
+        "Admin console",
+        "Drafts stored in client KVP",
+        "Standalone framework while debug is on",
+        "/graffiti clean, place, and reload",
+        "ox_lib key hints",
+        "Upload adapter left outside escrow"
+      ],
+      "removed": [
+        "graffiti:clean, graffiti:place, graffiti:reload, and graffitiadmin",
+        "epsilon_lib key hints",
+        "Drafts stored in NUI localStorage"
+      ],
+      "changed": [],
+      "fixed": []
+    },
+    {
+      "version": "0.1.0",
+      "added": [
+        "In-game editor, wall placement, and cleaning",
+        "SQL storage and image upload",
+        "qbx, qb, and esx bridges",
+        "Server event when a spray starts"
+      ],
+      "removed": [],
+      "changed": [],
+      "fixed": []
+    }
+  ]
+}
