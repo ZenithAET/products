@@ -1,1 +1,21 @@
-
+{
+  "name": "epsilon_holstersling",
+  "version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "added": [
+        "Weapon sling on back, chest, and hips, visible to other players",
+        "Holsters, duty belts, and vests that react to the weapon in hand",
+        "Draw and holster animations per slot, holster, and weapon group",
+        "Pistol draw styles with /holster style",
+        "In-game slot editor and clothing capture",
+        "qbx, qb, ESX, and standalone support",
+        "ox_inventory, qb-inventory, and native weapon support"
+      ],
+      "changed": [],
+      "fixed": [],
+      "removed": []
+    }
+  ]
+}
