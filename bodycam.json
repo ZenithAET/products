@@ -1,0 +1,22 @@
+{
+  "name": "epsilon_bodycam",
+  "version": "0.1.0",
+  "versions": [
+    {
+      "version": "0.1.0",
+      "added": [
+        "Chest mounts with four camera models and a recording overlay",
+        "Framework bridge: qbx_core, qb-core, es_extended, standalone or custom",
+        "jobs and requireDuty: limit who can wear a bodycam",
+        "Cameras can fall off on sprinting, jumping, climbing, fights and falls, anyone with a mount can pick them up",
+        "Dropped cameras expire after dropLifetime, /clearbc removes them (admin only)",
+        "Configurable animations per action",
+        "overlay.clock: in-game or real server time",
+        "Exports: isRecording, getBodycam (server), drop, isRecording (client)"
+      ],
+      "changed": [],
+      "fixed": [],
+      "removed": []
+    }
+  ]
+}
