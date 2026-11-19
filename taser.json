@@ -1,1 +1,133 @@
-
+{
+  "name": "epsilon_taser",
+  "version": "0.3.0",
+  "versions": [
+    {
+      "version": "0.3.0",
+      "added": [
+        "config.controls: ARC (G), flashlight (E) and laser (L) are game controls while a taser is in hand"
+      ],
+      "changed": [
+        "ARC, flashlight, laser, probe removal and AFID collection are no longer key bindings",
+        "Probe removal and AFID prompts use E only while shown and win over the flashlight",
+        "TASER 10 warning alert strobes the weapon flashlight",
+        "AFID confetti off for TASER 7 and TASER 10",
+        "Fewer notifications: arm / safe, low battery, reload, removal, empty trigger and the 15 s warning are gone"
+      ],
+      "fixed": [
+        "Firing with a dead battery showed the shot without using a cartridge, the trigger now does nothing"
+      ],
+      "removed": []
+    },
+    {
+      "version": "0.2.5",
+      "added": [],
+      "changed": [],
+      "fixed": [
+        "Trigger did nothing while the aim was locked onto a target (assisted aim)"
+      ],
+      "removed": []
+    },
+    {
+      "version": "0.2.4",
+      "added": [
+      ],
+      "changed": [
+      ],
+      "fixed": [
+        "Custom taser weapons with a high hash did not match their device state and never fired"
+      ],
+      "removed": []
+    },
+    {
+      "version": "0.2.3",
+      "added": [],
+      "changed": [
+        "Profile option cid is now display: 1 = bay screen, 2 = magazine screen",
+        "Simpler config comments"
+      ],
+      "fixed": [
+        "First trigger pull could fire the game's own stun gun while the fire animation loaded"
+      ],
+      "removed": []
+    },
+    {
+      "version": "0.2.2",
+      "added": [],
+      "changed": [
+        "Source cleanup: trailing whitespace and blank lines removed"
+      ],
+      "fixed": [],
+      "removed": []
+    },
+    {
+      "version": "0.2.1",
+      "added": [
+        "npc.enabled: turn NPC reactions to warnings and shocks off"
+      ],
+      "changed": [
+        "Shorter config comments"
+      ],
+      "fixed": [],
+      "removed": []
+    },
+    {
+      "version": "0.2.0",
+      "added": [
+        "battery.enabled: turn battery packs off, the taser always has power",
+        "reload.mode: items, free (reload key without items) or auto (spent bays refill on their own)"
+      ],
+      "changed": [
+        "reload settings moved next to the item settings in config/shared.lua"
+      ],
+      "fixed": [],
+      "removed": []
+    },
+    {
+      "version": "0.1.2",
+      "added": [],
+      "changed": [
+        "Live shocks are sent again every second and at once when a ped changes owner",
+        "The shooter takes control of a server owned NPC to apply the shock"
+      ],
+      "fixed": [
+        "Peds with attached probes sometimes did not fall when the ped changed owner",
+        "Ragdoll blocked by other scripts or NPC scenarios"
+      ],
+      "removed": []
+    },
+    {
+      "version": "0.1.1",
+      "added": [],
+      "changed": [
+        "A body full of probes drops its oldest probe instead of rejecting new hits"
+      ],
+      "fixed": [
+        "Probes sometimes flew through running or animated peds and landed behind them",
+        "Probes that could not attach hung in the air instead of falling to the ground",
+        "First hit could miss while the probe model was still loading",
+        "Probes detached from a ped are attached again"
+      ],
+      "removed": []
+    },
+    {
+      "version": "0.1.0",
+      "added": [
+        "TASER 7 and TASER 10 profiles, X2 and X26P ready to map",
+        "Probe flight with real cartridge spread, wires and 5 second cycles",
+        "Spread based effect: NMI, partial lockup, pain compliance",
+        "Trigger hold, ARC re-energize, warning arc and alert, drive stun",
+        "Battery packs, cartridges, magazines and dock stored in weapon metadata",
+        "Laser dots, flashlight and TASER 10 alert strobe",
+        "Native sounds for every device event",
+        "Device display HUD with /thud menu to show, hide, move and resize",
+        "Cartridge serials, device log, incident reports, Discord webhook and epsilon_cad reports",
+        "AFID confetti evidence and Axon Signal events",
+        "Probe removal with ox_target or key prompt"
+      ],
+      "changed": [],
+      "fixed": [],
+      "removed": []
+    }
+  ]
+}
