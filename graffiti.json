@@ -5,12 +5,12 @@
     {
       "version": "0.2.1",
       "added": [],
-      "removed": [],
       "changed": [
         "Editor opens without a title",
         "Upload failure asks the player to contact the owner"
       ],
-      "fixed": []
+      "fixed": [],
+      "removed": []
     },
     {
       "version": "0.2.0",
@@ -22,13 +22,13 @@
         "ox_lib key hints",
         "Upload adapter left outside escrow"
       ],
+      "changed": [],
+      "fixed": [],
       "removed": [
         "graffiti:clean, graffiti:place, graffiti:reload, and graffitiadmin",
         "epsilon_lib key hints",
         "Drafts stored in NUI localStorage"
-      ],
-      "changed": [],
-      "fixed": []
+      ]
     },
     {
       "version": "0.1.0",
@@ -38,9 +38,9 @@
         "qbx, qb, and esx bridges",
         "Server event when a spray starts"
       ],
-      "removed": [],
       "changed": [],
-      "fixed": []
+      "fixed": [],
+      "removed": []
     }
   ]
 }
