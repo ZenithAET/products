@@ -1,0 +1,22 @@
+{
+  "name": "epsilon_fishing",
+  "version": "0.1.0",
+  "versions": [
+    {
+      "version": "0.1.0",
+      "added": [
+        "Rods are created by the server and held in hand, so every player sees them, also on servers with entity lockdown",
+        "Every nearby player sees the line, the lure, the cast, the retrieve and the fight",
+        "The lure checks the water where it lands: depth, sea floor (sand, rock, mud) and where you stand (shore, pier, boat)",
+        "25 real Southern California species with their own depth, floor, time of day, season, bait and lure",
+        "Weight and length from real size data, juveniles and rare trophies",
+        "Line tension fight: the fish runs and rests, the drag slips, cranking through a run snaps the line",
+        "Three rods, six baits and eight lures, a landing net and a gaff for bigger fish",
+        "Server decides bites, species, weight and rewards; every client report is checked"
+      ],
+      "changed": [],
+      "fixed": [],
+      "removed": []
+    }
+  ]
+}
