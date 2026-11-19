@@ -1,0 +1,36 @@
+{
+  "name": "epsilon_rpchat",
+  "version": "2.0.0",
+  "versions": [
+    {
+      "version": "2.0.0",
+      "added": [
+        "Rewritten from scratch",
+        "Framework bridge: qbx, qb, esx, nd, ox and standalone",
+        "Text roleplay speech with distance fade, *action* colors and emoji to action",
+        "Lip sync while speaking",
+        "3D text for /me, /do, /ame and /dice with wall and glass checks",
+        "Lines behind a wall show darker with (not visible)",
+        "Private messages with blocking, kept in the server KVP",
+        "Masks hide the character name",
+        "Join, leave, crash, timeout and kick lines",
+        "Typing icon",
+        "Player settings menu: sound, time, auto grammar, typing icons",
+        "Chat theme with six fonts and a character counter",
+        "Optional Discord logs",
+        "Exports: SendProximityMessage, GetDisplayName, GetPlayerCharacterName, IsMasked",
+        "10 languages"
+      ],
+      "changed": [],
+      "fixed": [
+        "Player text can no longer break messages with % or {placeholders}",
+        "Color codes in player text are removed",
+        "Players can no longer fake 3D text or join messages"
+      ],
+      "removed": [
+        "Per player JSON chat logs",
+        "Chat log viewer"
+      ]
+    }
+  ]
+}
