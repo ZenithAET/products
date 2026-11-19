@@ -1,1 +1,81 @@
-
+{
+  "name": "epsilon_radio_lite",
+  "version": "1.4.3",
+  "versions": [
+    {
+      "version": "1.4.3",
+      "added": [
+        "Different colors or patterns of the same clothing can pick different radio poses."
+      ],
+      "changed": [
+        "Clothing rules can be written in order or by name; the first match wins.",
+        "In one rule, matching any listed vest, bag, or accessory is enough."
+      ],
+      "fixed": [
+        "Using the radio from inventory opens the screen again."
+      ],
+      "removed": []
+    },
+    {
+      "version": "1.4.2",
+      "added": [],
+      "changed": [],
+      "fixed": [
+        "Battery charging now stops correctly when you leave the vehicle.",
+        "The radio UI no longer replays its entrance when it is already open."
+      ],
+      "removed": []
+    },
+    {
+      "version": "1.4.0",
+      "added": [],
+      "changed": [
+        "Vehicle charging feels more trustworthy in eligible seats."
+      ],
+      "fixed": [
+        "Leaving the car or changing seats no longer leaves a false charging state."
+      ],
+      "removed": []
+    },
+    {
+      "version": "1.3.2",
+      "added": [],
+      "changed": [
+        "Opening and closing the radio feels cleaner."
+      ],
+      "fixed": [
+        "Overlay and channel list settings keep their place more reliably."
+      ],
+      "removed": []
+    },
+    {
+      "version": "1.3.0",
+      "added": [
+        "Battery warnings arrive before the radio goes silent."
+      ],
+      "changed": [
+        "Drag placement and softkey menus feel more consistent through a full shift."
+      ],
+      "fixed": [],
+      "removed": []
+    },
+    {
+      "version": "1.2.1",
+      "added": [],
+      "changed": [
+        "Channel list names and talking status are easier to follow on busy frequencies."
+      ],
+      "fixed": [],
+      "removed": []
+    },
+    {
+      "version": "1.2.0",
+      "added": [
+        "First public Lite release with portable radio, channels, overlays, and battery life."
+      ],
+      "changed": [],
+      "fixed": [],
+      "removed": []
+    }
+  ]
+}
