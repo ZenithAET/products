@@ -1,1 +1,260 @@
-
+{
+  "name": "epsilon_cad",
+  "version": "0.3.10",
+  "versions": [
+    {
+      "version": "0.3.10",
+      "added": [
+        "Calls in the record event (epsilon_cad:server:record kind call): created, closed or cancelled and important changes (status, priority, nature, assigned units); notes and unit steps are left out"
+      ],
+      "changed": [],
+      "fixed": [],
+      "removed": []
+    },
+    {
+      "version": "0.3.9",
+      "added": [
+        "Config.General.license: resource name and metadata key of the license product, for servers that renamed it"
+      ],
+      "changed": [],
+      "fixed": [],
+      "removed": []
+    },
+    {
+      "version": "0.3.8",
+      "added": [
+        "Tow MDT: a simple work tablet for tow and mechanic jobs (agency type tow, config/factions/lstow.lua). Drivers see open tow requests, accept one, set the GPS and step through en route, on scene, towing and delivered",
+        "Request Tow in the MDT vehicle record for law enforcement (tow.request); a linked call gets the tow progress as notes",
+        "Tow request exports for garage and impound scripts: CreateTowRequest, UpdateTowRequest, GetTowRequest, RegisterTowProvider, plus the towUpdated and towRequested server events",
+        "SetVehicleFlag export: other resources can set the impound or stolen flag of a vehicle record",
+        "RegisterApp export: another resource can add a desktop app whose files stay in that resource",
+        "Record event for integrations: epsilon_cad:server:record { kind, action, agency, id, at, record } when reports, citations, warrants, bookings, BOLOs and tow requests change"
+      ],
+      "changed": [],
+      "fixed": [],
+      "removed": []
+    },
+    {
+      "version": "0.3.7",
+      "added": [
+        "Custom apps: server owners add their own HTML, CSS and JS apps in customapps/ without a UI build. Apps show in the desktop Start menu and open in a sandboxed window; visibility by agency, permission and computer group (customapps/apps.lua)",
+        "Custom app SDK (customapps/_sdk/cad-app.js): context, server requests through exports RegisterAppHandler, state that passes to the next desk user, notifications, window title and close",
+        "Example app (customapps/example, disabled by default) and customapps/README.md"
+      ],
+      "changed": [],
+      "fixed": [],
+      "removed": []
+    },
+    {
+      "version": "0.3.6",
+      "added": [],
+      "changed": [
+        "System messages (report referral, custody release) and the EMS transport call note are stored with a translation key and show in the reader's language",
+        "Citation notifications, the notice copy and the training call title follow the server language",
+        "Turkish: formal address in access and duty notifications"
+      ],
+      "fixed": [],
+      "removed": []
+    },
+    {
+      "version": "0.3.5",
+      "added": [
+        "Citation payment: players list and pay their non-court citations with a command (Config.General.citations), staff mark citations paid in RMS (citation.pay), exports GetCitations / MarkCitationPaid and the epsilon_cad:server:citationPaid event",
+        "Warrant priority, court and case number on new warrants, on approval and in a Court Details editor (warrant.approve); export UpdateWarrantCourt",
+        "Report referral (report.refer): a submitted or approved report can be referred to another agency, which reads it in RMS and gets an MDT message",
+        "Hospital release to law enforcement can name the receiving agency, which gets an MDT message",
+        "SOMS Out to hospital can pick a hospital; the hospital gets an expected arrival with the custody details",
+        "Inventory bridge (ox_inventory, qb-inventory, qs-inventory) and framework money functions"
+      ],
+      "changed": [
+        "Citation and report lists update live for everyone who can read the record",
+        "Adding a vehicle to a report searches the server; fire and hospital staff can look up a plate without owner or flags (vehicles.lookup) or add an unlisted vehicle"
+      ],
+      "fixed": [
+        "Citation copies and printer pages no longer call qbx_core and ox_inventory directly",
+        "The report vehicle picker only searched demo data"
+      ],
+      "removed": []
+    },
+    {
+      "version": "0.3.4",
+      "added": [
+        "Custom framework bridges: set bridge.framework to any folder name under bridge/framework/; a custom bridge can build on a bundled one (lib.load('bridge.framework.qbx.server')) and change only what differs"
+      ],
+      "changed": [],
+      "fixed": [],
+      "removed": [
+        "The separate server adapter layer (bridge.adapter and shared/adapter.lua); job to faction mapping stays in config/factions"
+      ]
+    },
+    {
+      "version": "0.3.3",
+      "added": [
+        "Vehicle papers: VIN, model year, registration and insurance are read from a papers resource (Config.General.vehiclePapers.resource, exports GetPapersMany / FindByVin) or an adapter hook (GetVehiclePapers / FindVehicleByVin)",
+        "Vehicle search by VIN and the paper issue filter now work on the server"
+      ],
+      "changed": [
+        "The server adapter is selected in config/general.lua (bridge.adapter) instead of a convar; a missing adapter folder prints a warning instead of stopping the resource",
+        "Unregistered and Uninsured flags only appear when the registration or insurance is not valid"
+      ],
+      "fixed": [],
+      "removed": [
+        "The aetech_cad_adapter convar"
+      ]
+    },
+    {
+      "version": "0.3.2",
+      "added": [
+        "EMS patient transport from the fire MDT: pick the hospital, ETA, acuity and report; the hospital's CareBoard gets it live in Expected Arrivals, the call gets a note and the unit goes to Transporting",
+        "Fire unit statuses: In quarters, Responding, Transporting and At hospital (transport statuses can be set during a call)"
+      ],
+      "changed": [
+        "Call visibility: 'leo' calls reach LEO agencies only, 'fire' and 'ems' calls reach fire agencies, and a Fire/EMS or Police request makes the call visible to that service",
+        "The fire MDT no longer opens person, vehicle, citation, BOLO and warrant screens and hides their counters",
+        "Hospital registration clerks can search state records by default (persons.search)"
+      ],
+      "fixed": [
+        "A Fire/EMS request on a police call never reached the fire MDT",
+        "EMS call list rows now open the call",
+        "StationDesk open calls stayed empty until a live update arrived",
+        "Registering a patient from state records created a second MRN for a known patient"
+      ],
+      "removed": []
+    },
+    {
+      "version": "0.3.1",
+      "added": [
+        "Lodestar CAD: dispatch notes on the incident panel (cad.note) and Close / Cancel call with confirmation (cad.close)",
+        "Unit location and radio channel: units send their street, cross street and zone; the channel is read from epsilon_radio_advanced or pma-voice"
+      ],
+      "changed": [],
+      "fixed": [
+        "Citation codes in game came from the bundled sample file; they now come from config/citations.lua",
+        "Call history showed the viewing officer as every involved officer; officers are now saved with the call when a unit is assigned",
+        "Linking a call to a report did not add the call's vehicles in game",
+        "Call notes had no length or count limit"
+      ],
+      "removed": []
+    },
+    {
+      "version": "0.3.0",
+      "added": [
+        "Server adapters: bridge/<name>/ selected with 'setr aetech_cad_adapter <name>' can map jobs to factions and override only the bridge functions a server needs",
+        "Displayed person number: bridges can show a state ID other than citizenid on every screen and search by it (records stay keyed by citizenid)",
+        "epsilon_license integration: licence number, class, expiry and photo are read from the epsilon_license record when that resource runs",
+        "Dispatch seat and Dispatcher role (Config.General.dispatch.mode): dispatch powers come from a dispatch seat computer or the shift role instead of rank",
+        "Admin console: mark a computer as a dispatch seat",
+        "escrow_ignore keeps config, bridge, locales and install files open"
+      ],
+      "changed": [
+        "Assigning or detaching other units, closing calls and creating calls are desk-only; the vehicle MDT can no longer dispatch",
+        "Driver licence number shows in name search results when epsilon_license is used"
+      ],
+      "fixed": [],
+      "removed": []
+    },
+    {
+      "version": "0.2.6",
+      "added": [
+        "Desk computers are saved to the database (table epsilon_cad_desk_state, created automatically)"
+      ],
+      "changed": [
+        "A server or resource restart no longer resets desks: files, icon positions, open windows, sign-ins and the on/off/locked state are restored. Idle desks still lock after autoLockMinutes"
+      ],
+      "fixed": [],
+      "removed": []
+    },
+    {
+      "version": "0.2.5",
+      "added": [],
+      "changed": [],
+      "fixed": [
+        "Reopening the desk computer replayed the window open animation and reloaded every app; the screen now stays loaded and reappears instantly",
+        "Restored windows from another player no longer animate in one by one",
+        "Taskbar shortcuts and power screen keys no longer react while the desk computer is closed (for example while using the vehicle MDT)"
+      ],
+      "removed": []
+    },
+    {
+      "version": "0.2.4",
+      "added": [],
+      "changed": [],
+      "fixed": [
+        "Coming back to a desk no longer rebuilds the screen: windows, apps and sign-ins stay exactly as they were",
+        "When someone else used the desk in between, their screen appears at once instead of windows popping in one by one",
+        "Explorer folders and history were lost after leaving the desk"
+      ],
+      "removed": []
+    },
+    {
+      "version": "0.2.3",
+      "added": [],
+      "changed": [],
+      "fixed": [
+        "Reopening a desk always booted again and asked for the password; it now opens in the state it was left in",
+        "Screen saves after sign-out, shut-down or restart were rejected, so the handover could show an old screen"
+      ],
+      "removed": []
+    },
+    {
+      "version": "0.2.2",
+      "added": [
+        "Leave desk button on the taskbar, in the Start and lock screen power menus and on the off screen"
+      ],
+      "changed": [
+        "ESC no longer closes the desk computer; it only closes menus, dialogs and in-app views"
+      ],
+      "fixed": [
+        "Closing a menu with ESC also closed the computer",
+        "Leaving the desk could lose the last second of screen changes"
+      ],
+      "removed": []
+    },
+    {
+      "version": "0.2.1",
+      "added": [
+        "JusticeNET accounts sign in with an email address (Config.General.justicenet.emailDomain, default justicenet.sa.gov)"
+      ],
+      "changed": [],
+      "fixed": [
+        "Admin placement: pressing E did not save the position and closed the console",
+        "Pressing ESC during boot closed the computer instead of skipping the boot",
+        "A computer left during boot booted again on every open",
+        "The release package shipped development admin data and the unused seed file"
+      ],
+      "removed": []
+    },
+    {
+      "version": "0.2.0",
+      "added": [
+        "Desk handover: the next player finds the computer as it was left, with open windows, files, unsaved text, app pages, forms and sign-ins",
+        "Settings > Account: desk name, photo, password and wallpapers, also editable from the admin console (Lua desks included)",
+        "Shut down, restart and power-on screens with a firmware POST screen",
+        "Idle desks go to sleep and lock after Config.General.desktop.autoLockMinutes (default 10)",
+        "Download button for images, videos and PDFs imported in another player session"
+      ],
+      "changed": [
+        "Desk password is enforced on the server, with an attempt limit",
+        "Desk accounts are stored in data/admin/desk_accounts.json and migrated automatically",
+        "Report templates, offense codes and department resources moved to data/catalog"
+      ],
+      "fixed": [
+        "Admin placement did not confirm the position when pressing E",
+        "Reopening a password desk skipped the password prompt",
+        "RMS person and vehicle pages kept loading when the record could not be opened"
+      ],
+      "removed": [
+        "install/seed.sql is no longer applied on start, so test records are not written to the database"
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "added": [
+        "Initial release"
+      ],
+      "changed": [],
+      "fixed": [],
+      "removed": []
+    }
+  ]
+}
