@@ -15,7 +15,7 @@
         "The voice host (DLL, Tunnel, External VPS) and server/voice_auth.lua are removed; no ports or domains are needed.",
         "config/general.lua Voice section is down to the settings that matter: Quality, PTT.MaxTransmitSeconds, Scan, Bleed and MicPickup. An old Voice.Engine table is still read.",
         "config/environment.lua siren presets are one line each (folder, warningFile, rumbler). Provider details are built in; old configs are still read.",
-        "Server and all players must run the same version."
+        "Server and all players must run the same version. (For external voice-server users)"
       ],
       "fixed": [
         "Changing channel or pressing radio buttons no longer restarts the hold animation.",
