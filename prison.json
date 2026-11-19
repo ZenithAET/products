@@ -1,0 +1,15 @@
+{
+  "name": "epsilon_prison",
+  "version": "0.1.0",
+  "versions": [
+    {
+      "version": "0.1.0",
+      "added": [
+        "Beta release"
+      ],
+      "changed": [],
+      "fixed": [],
+      "removed": []
+    }
+  ]
+}
