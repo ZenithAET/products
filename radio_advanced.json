@@ -1,1 +1,179 @@
-
+{
+  "name": "epsilon_radio_advanced",
+  "version": "2.4.4",
+  "versions": [
+    {
+      "version": "2.4.4",
+      "added": [
+        "Radio voice now uses the Opus codec: about 4 KB/s per listener instead of 21 KB/s.",
+        "P25-style digital voice: radios or channels with digital = true in config/radios.lua (LSPD and LSSD by default). Voice.Digital in config/general.lua picks the profile (clean, mobile, weak).",
+        "Other players see your radio prop on every server, including sv_entityLockdown strict.",
+        "The channel cannot be changed while transmitting, and channel changes have a 150 ms cooldown."
+      ],
+      "changed": [
+        "Voice audio travels as normal events instead of latent events. Crowded channels no longer sound robotic.",
+        "The voice host (DLL, Tunnel, External VPS) and server/voice_auth.lua are removed; no ports or domains are needed.",
+        "config/general.lua Voice section is down to the settings that matter: Quality, PTT.MaxTransmitSeconds, Scan, Bleed and MicPickup. An old Voice.Engine table is still read.",
+        "config/environment.lua siren presets are one line each (folder, warningFile, rumbler). Provider details are built in; old configs are still read.",
+        "Server and all players must run the same version."
+      ],
+      "fixed": [
+        "Changing channel or pressing radio buttons no longer restarts the hold animation.",
+        "Spamming volume or channel no longer makes the value jump back and forth, on handheld and vehicle radios.",
+        "A vehicle radio joining a channel you already hear on your handheld now shows the RX light and busy state.",
+        "Radio props now spawn on servers with strict entity lockdown.",
+        "A vehicle seat animation ending no longer cancels the handheld pose."
+      ],
+      "removed": [
+        "Voice host DLL, Tunnel/External/GameServerIp settings and latent voice events."
+      ]
+    },
+    {
+      "version": "2.4.3",
+      "added": [
+        "RequireJob in config/vehicles.lua: vehicle radio voice follows the radio type's job, like handhelds (on by default).",
+        "Radio UI, PTT and props are put away when the player dies; the radio stays on.",
+        "If the handheld cannot transmit, a shared PTT key falls back to the vehicle radio."
+      ],
+      "changed": [
+        "The voice host port only opens behind an https Tunnel or on the dedicated voice VPS. Without one, voice uses FiveM events and no port is opened.",
+        "External voice VPS: audio is sent in one batch per server tick, and players the VPS cannot reach fall back to FiveM events. Update the VPS and the game server together.",
+        "Voice host tokens travel in headers, never in URLs.",
+        "MaxRadiosPerPlayer is now enforced on every inventory.",
+        "Battery charge reported by clients is checked on the server.",
+        "ESX admin check uses the epsilon_radio.admin ACE instead of the broad command ACE.",
+        "Smaller UI bundle and lower CPU use in vehicles and while idle.",
+        "About 30% less voice traffic, far fewer state bag and channel list updates, and lower server CPU for speaker bleed and access checks.",
+        "Handheld radios used inside a helicopter now use the helicopter voice profile.",
+        "The unused native sound exports (playSoundFrontend, playSoundFromEntity and similar) are removed."
+      ],
+      "fixed": [
+        "The radio UI no longer keeps re-rendering while the radio is off.",
+        "A slow or stalled listener can no longer freeze the server through the voice host.",
+        "One talker releasing PTT no longer cuts other talkers' audio.",
+        "Vehicle passengers can no longer transmit on the vehicle radio.",
+        "Dropping or stashing a radio on qb, lj or tgiann inventories now stops listening.",
+        "Reopening the radio right after closing it no longer locks the screen.",
+        "A different radio moved into the same ox_inventory slot ends the old session.",
+        "/setradio checks the job on framework servers.",
+        "Voice host streams stay open behind Cloudflare and reconnect with backoff.",
+        "Sound ids, vehicle radio states and bridge errors no longer leak or fail silently.",
+        "Unplugging the microphone stops transmitting."
+      ],
+      "removed": []
+    },
+    {
+      "version": "2.4.2",
+      "added": [],
+      "changed": [],
+      "fixed": [],
+      "removed": []
+    },
+    {
+      "version": "2.4.1",
+      "added": [],
+      "changed": [
+        "Bad or heavy voice traffic is less likely to flood a channel.",
+        "Voice network limits can be tuned in config.",
+        "In clothing rules, any listed piece is enough; colors and patterns can change the pose."
+      ],
+      "fixed": [
+        "Using the portable radio from inventory opens the screen again.",
+        "Vehicle radio talk no longer gives a false busy click.",
+        "Reaching for a vehicle radio from outside no longer crashes the server.",
+        "Quick vehicle PTT taps are less likely to get stuck talking.",
+        "/radio_voice_reset cleans up and rebuilds voice properly when the mic breaks.",
+        "Letting go of talk no longer makes the next press feel late or doubled.",
+        "Quiet moments no longer make speech sound sped-up or robotic.",
+        "Word endings cut off less often when you release the key.",
+        "If someone drops mid-talk, the channel frees itself again."
+      ],
+      "removed": []
+    },
+    {
+      "version": "2.4.0",
+      "added": [
+        "Helicopter rotor bed mixes into PTT while in a heli (vehicle class 15), including handheld PTT from the cabin."
+      ],
+      "changed": [
+        "Vehicle radios are configured as named types in config/vehicles.lua (layout pack + spawn model list + own zones), not a single global model/defaults block.",
+        "Siren TX beds use SirenPresets + VehicleSirenGroups only (no per-model VehicleSirens table).",
+        "Shared PTT key: portable wins while powered; vehicle only when the portable is missing or off."
+      ],
+      "fixed": [],
+      "removed": []
+    },
+    {
+      "version": "2.3.1",
+      "added": [
+        "Vehicle radio UI opens with a dedicated keybind and can stay hidden while voice stays connected."
+      ],
+      "changed": [
+        "Only one person can key the shared vehicle radio at a time; the next press gets a busy response."
+      ],
+      "fixed": [],
+      "removed": []
+    },
+    {
+      "version": "2.3.0",
+      "added": [],
+      "changed": [
+        "Cabin mic pickup is quieter for the seat beside the talker and much quieter in the back.",
+        "Outside a closed vehicle, nearby speech only barely reaches the radio and falls off with distance."
+      ],
+      "fixed": [],
+      "removed": []
+    },
+    {
+      "version": "2.2.4",
+      "added": [],
+      "changed": [
+        "Portable and vehicle scan lists stay independent."
+      ],
+      "fixed": [
+        "Scan listeners no longer appear on your selected channel list."
+      ],
+      "removed": []
+    },
+    {
+      "version": "2.2.0",
+      "added": [],
+      "changed": [
+        "Escape closes the handheld first, and restarts no longer auto-open radio UIs."
+      ],
+      "fixed": [
+        "Portable and vehicle docks stop stealing each other's focus."
+      ],
+      "removed": []
+    },
+    {
+      "version": "2.1.3",
+      "added": [],
+      "changed": [
+        "The intentional radio delay stays in place without staff tuning."
+      ],
+      "fixed": [
+        "Radio voices hold together more smoothly under pressure."
+      ],
+      "removed": []
+    },
+    {
+      "version": "2.1.0",
+      "added": [
+        "Vehicle radios arrive as their own class with power, volume, and channel memory."
+      ],
+      "changed": [],
+      "fixed": [],
+      "removed": []
+    },
+    {
+      "version": "2.0.0",
+      "added": [
+        "Advanced opens with richer radio audio and separate device classes for portable and vehicle."
+      ],
+      "changed": [],
+      "fixed": [],
+      "removed": []
+    }
+  ]
+}
