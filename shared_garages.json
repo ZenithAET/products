@@ -1,1 +1,114 @@
-
+{
+  "name": "epsilon_sharedgarages",
+  "version": "1.1.0",
+  "versions": [
+    {
+      "version": "1.1.0",
+      "added": [
+        "Garage types: zone, ped, target and parking lot (client/types)",
+        "Parking lot garages: vehicles stand parked on slots, are parked again on every start, taken by looking at them and parked back with the key",
+        "Lot switches per garage with per vehicle overrides: locked, engine running, frozen, no damage, seat on take",
+        "Interaction bridge (bridge/interact) with ox_target and ox_lib providers, Config.Target",
+        "Admin panel (/sgarage:manage): overview, garages, vehicles and logs pages in the CAD console style",
+        "In game garage creator for every type with walk placement for corners, spawn points, slots and locations",
+        "Export any garage as Lua for config.lua; panel garages are stored in shared_garages_garages",
+        "Vehicle recall, slot swap and per vehicle history in the admin panel"
+      ],
+      "changed": [
+        "/sgarage:add opens the admin panel on the add vehicle form",
+        "Vehicle type is saved with the props so the server spawns bikes, boats and aircraft with the right type",
+        "One key prompt system (client/prompt.lua) for every [E] interaction"
+      ],
+      "fixed": [],
+      "removed": []
+    },
+    {
+      "version": "1.0.5",
+      "added": [],
+      "changed": [
+        "Store docs, database schema and bridge updates"
+      ],
+      "fixed": [],
+      "removed": []
+    },
+    {
+      "version": "1.0.4",
+      "added": [
+        "server/discord.lua Discord bot role checks for garage.discord overrides"
+      ],
+      "changed": [
+        "Admin transfer always visible; out-vehicle transfer confirmation"
+      ],
+      "fixed": [
+        "Random OneSync vehicle despawn using SetEntityOrphanMode(2) and client mission-entity lock",
+        "Spawned vehicles stuck as Out after unexpected entity removal (auto return to In-Garage)",
+        "Standalone access and Interaction issues (ACE group.<job>, Discord bot roles)"
+      ],
+      "removed": []
+    },
+    {
+      "version": "1.0.3",
+      "added": [],
+      "changed": [
+        "Moved vehicle key handling into bridge/server.lua for simpler customization"
+      ],
+      "fixed": [],
+      "removed": [
+        "Separate bridge/vehiclekeys files for qbx_vehiclekeys, qb-vehiclekeys, and none fallback"
+      ]
+    },
+    {
+      "version": "1.0.2",
+      "added": [
+        "Server-side garage access validation for data fetch, vehicle spawn, and vehicle return flows",
+        "Server-side vehicle min grade validation to prevent bypassing NUI restrictions",
+        "Turkish locale coverage and missing locale keys for client, admin, command, and log messages",
+        "Unique garage update revisions so rapid Spawning to Out state changes always refresh the UI",
+        "Spawn point reservation and occupancy checks to prevent simultaneous spawns from using the same point"
+      ],
+      "changed": [
+        "Client CheckJob now uses configured garage jobs and required grade instead of always allowing access",
+        "Lua notifications, garage labels, admin command help, and garage logs now use locale strings",
+        "Disabled default debug zone rendering for production use"
+      ],
+      "fixed": [
+        "Garage UI remaining stuck on Spawning until reopened after a successful vehicle spawn",
+        "Race condition where two players could attempt to spawn the same garage vehicle at the same time"
+      ],
+      "removed": []
+    },
+    {
+      "version": "1.0.1",
+      "added": [
+        "Server-side Bridge.VehicleSpawned(data) integration hook after a shared garage vehicle is successfully spawned",
+        "Vehicle spawn payload with source, vehicle, netId, garage, plate, model, coords, props, mods, deformation, vehicle data, and request data",
+        "Documentation for the vehicle spawn integration hook and payload fields"
+      ],
+      "changed": [],
+      "fixed": [],
+      "removed": [
+        "Extra client-side spawned vehicle hook flow in favor of the single server bridge hook"
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "added": [
+        "Job based shared garage zones with grade restricted vehicle access",
+        "Admin add and manage commands for creating, editing, transferring, deleting vehicles, and viewing logs",
+        "Vehicle state persistence for props, fuel, oil, dirt, body health, engine health, tank health, and deformation",
+        "Deformation save, restore, and synchronization support",
+        "Current vehicle return flow with saved state update before entity deletion",
+        "NUI with vehicle list, search, current vehicle card, and admin management views",
+        "Automatic database table creation for shared garage vehicles and logs",
+        "Framework bridge loader for qbx_core, qb-core, es_extended, and standalone ACE",
+        "Vehicle key bridge modules for qbx_vehiclekeys, qb-vehiclekeys, and no key fallback",
+        "Real framework job grade labels in /sgarage:add"
+      ],
+      "changed": [
+        "Initial Release"
+      ],
+      "fixed": [],
+      "removed": []
+    }
+  ]
+}
